@@ -1,0 +1,138 @@
+.header {
+    margin: 0 auto;
+    background-color: #073042;
+    padding: 18px 70px 18px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    max-width: 38px;
+    max-height: 38px;
+}
+
+.header__nav-bar {
+    display: flex;
+    gap: 50px;
+}
+
+.header__list {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 18.6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__item:nth-child(2){
+    margin-right: 29px;
+}
+
+.header__button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: rgba(7, 48, 66, 1);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400px;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.header__button-profile {
+    padding: 0;
+    border: none;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background-color: rgba(15, 65, 87, 1);
+    
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 18px 30px;
+        /* Уменьшаем отступы по бокам */
+        justify-content: space-between;
+    }
+
+    .header__nav-bar {
+        display: none;
+        /* Скрываем навигационное меню */
+    }
+
+    .header__btn {
+        display: block;
+        /* Показываем кнопку бургера */
+        cursor: pointer;
+    }
+
+    /* Дополнительные стили для кнопки бургера (как в вашем примере) */
+    .header__icon {
+        cursor: pointer;
+        display: inline-block;
+        padding: 10px;
+        position: relative;
+        user-select: none;
+    }
+
+    .header__icon .navicon {
+        background: #333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background .2s ease-out;
+        width: 18px;
+    }
+
+    .header__icon .navicon:before,
+    .header__icon .navicon:after {
+        background: #333;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+
+    .header__icon .navicon:before {
+        top: 5px;
+    }
+
+    .header__icon .navicon:after {
+        top: -5px;
+    }
+
+    .header__btn:checked~.header__nav-bar {
+        display: block;
+        /* Показываем навигационное меню при активной кнопке бургера */
+    }
+
+    .header__btn:checked~.header__icon .navicon {
+        background: transparent;
+    }
+
+    .header__btn:checked~.header__icon .navicon:before {
+        transform: rotate(-45deg);
+    }
+
+    .header__btn:checked~.header__icon .navicon:after {
+        transform: rotate(45deg);
+    }
+
+    .header__btn:checked~.header__icon:not(.steps) .navicon:before,
+    .header__btn:checked~.header__icon:not(.steps) .navicon:after {
+        top: 0;
+    }
+
+    /* Скрываем кнопку бургера при активном меню */
+    .header__btn:checked~.header__icon {
+        display: none;
+    }
+}
