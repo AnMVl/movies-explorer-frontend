@@ -3,16 +3,15 @@ import headerLogo from '../../images/icons/header__logo.svg';
 import buttonImg from '../../images/icons/header-auth-img.svg';
 import '../AuthHeader/AuthHeader.css';
 
-export function AuthHeader() {
+export function AuthHeader({ burgerClick, auth }) {
     return (
-        <section className="header">
+        <header className={`header ${auth ? 'header_type_movies' : ''}`}>
             <img src={headerLogo} alt="Логотип" className="header__logo" />
-            <input class="header__btn" type="checkbox" id="header__btn" />
-            <label class="header__icon" for="header__btn"></label>
+            <button className="header__burger" onClick={burgerClick}></button>
             <nav className="header__nav-bar">
                 <ul className="header__list">
                     <li className="header__item">
-                        <Link to="/signup" className="header__button">
+                        <Link to="/movies" className="header__button">
                             Фильмы
                         </Link>
                     </li>
@@ -28,7 +27,13 @@ export function AuthHeader() {
                     </li>
                     <li className="header__item">
                         <Link to="/signup" className="header__button">
-                            <button className="header__button-profile">
+                            <button
+                                className={`header__button-profile ${
+                                    auth
+                                        ? 'header__button-profile_type_movies'
+                                        : ''
+                                }`}
+                            >
                                 <img
                                     src={buttonImg}
                                     alt="Кнопка личного кабинета пользователя"
@@ -38,6 +43,6 @@ export function AuthHeader() {
                     </li>
                 </ul>
             </nav>
-        </section>
+        </header>
     );
 }

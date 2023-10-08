@@ -8,10 +8,10 @@ import { Portfolio } from '../Portfolio/Portfolio';
 import { Footer } from '../Footer/Footer';
 import './Main.css';
 
-export function Main({ loggedIn }) {
+export function Main({ loggedIn, burgerClick }) {
     return (
         <>
-            {loggedIn ? <AuthHeader /> : <Header />}
+            {loggedIn ? <AuthHeader burgerClick={burgerClick} /> : <Header />}
             <main className="main">
                 <Promo />
                 <AboutProject />
