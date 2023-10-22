@@ -37,14 +37,17 @@
     width: 129px;
     height: 36px;
     border-radius: 3px;
-}
-
-.promo__button-text {
     margin: 0;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
     color: #fff;
+}
+
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
 }
 
 .promo__img {

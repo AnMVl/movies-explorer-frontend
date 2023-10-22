@@ -12,9 +12,7 @@ export function Promo() {
                     Листайте ниже, чтобы узнать больше про этот проект и его
                     создателя.
                 </p>
-                <button className="promo__button">
-                    <p className="promo__button-text">Узнать больше</p>
-                </button>
+                <button className="promo__button link">Узнать больше</button>
             </div>
             <img className="promo__img" src={promoLogo} alt="Плнета" />
         </section>

@@ -14,6 +14,8 @@
 .header__logo {
     max-width: 38px;
     max-height: 38px;
+    margin: 0;
+    padding: 0;
 }
 
 .header__nav-bar {
@@ -41,7 +43,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0);
     color: rgba(255, 255, 255, 1);
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     text-decoration: none;
@@ -55,6 +57,7 @@
     height: 30px;
     border-radius: 6px;
     background-color: rgba(15, 65, 87, 1);
+    cursor: pointer;
 }
 
 .header__button-profile_type_movies {
@@ -72,6 +75,16 @@
     display: none;
 }
 
+.header__button-active{
+    font-weight: 500;
+}
+
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .header {
     padding: 18px 30px 18px 30px;
@@ -83,6 +96,11 @@
 
     .header__burger {
         display: block;
+    }
+
+    .header__button-active {
+        border-bottom: 2px solid rgba(0, 0, 0, 1);
+        padding-bottom: 8px;
     }
 }
 

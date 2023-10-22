@@ -1,0 +1,19 @@
+.notActiveButton{
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100px;
+    height: 29px;
+    border-radius: 30px;
+    background-color: rgba(49, 49, 49, 1);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 11px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}

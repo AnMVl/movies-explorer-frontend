@@ -6,6 +6,8 @@ import { SignUp } from './SignUp/SignUp';
 import { NotFound } from './NotFound/NotFound';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { Movies } from './Movies/Movies';
+import { SavedMovies } from './SavedMovies/SavedMovies';
+import { Profile } from './Profile/Profile';
 
 import { useCallback, useState } from 'react';
 
@@ -40,6 +42,26 @@ function App() {
                         path="/movies"
                         element={
                             <Movies
+                                burgerClick={handleBurgerPopupClick}
+                                onClose={closeAllPopups}
+                                isOpen={burgerPopupOpen}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/saved-movies"
+                        element={
+                            <SavedMovies
+                                burgerClick={handleBurgerPopupClick}
+                                onClose={closeAllPopups}
+                                isOpen={burgerPopupOpen}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/profile"
+                        element={
+                            <Profile
                                 burgerClick={handleBurgerPopupClick}
                                 onClose={closeAllPopups}
                                 isOpen={burgerPopupOpen}

@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import '../BurgerMenu/BurgerMenu.css';
 import buttonImg from '../../images/icons/header-auth-img.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export function BurgerMenu({ onClose, isOpen }) {
+    const location = useLocation();
+    const mainLink = location.pathname === '/';
+    const movieLink = location.pathname === '/movies';
+    const savedMovieLink = location.pathname === '/saved-movies';
+    const profileLink = location.pathname === '/profile';
     useEffect(() => {
         const handleEscClose = (e) => {
             if (e.key === 'Escape') {
@@ -47,7 +52,9 @@ export function BurgerMenu({ onClose, isOpen }) {
                         <li className="burger__item">
                             <Link
                                 to="/"
-                                className="burger__button"
+                                className={`burger__button link ${
+                                    mainLink ? 'burger__button-active' : ''
+                                }`}
                                 onClick={onClose}
                             >
                                 Главная
@@ -56,7 +63,9 @@ export function BurgerMenu({ onClose, isOpen }) {
                         <li className="burger__item">
                             <Link
                                 to="/movies"
-                                className="burger__button"
+                                className={`burger__button link ${
+                                    movieLink ? 'burger__button-active' : ''
+                                }`}
                                 onClick={onClose}
                             >
                                 Фильмы
@@ -64,8 +73,12 @@ export function BurgerMenu({ onClose, isOpen }) {
                         </li>
                         <li className="burger__item">
                             <Link
-                                to="/signin"
-                                className="burger__button"
+                                to="/saved-movies"
+                                className={`burger__button link ${
+                                    savedMovieLink
+                                        ? 'burger__button-active'
+                                        : ''
+                                }`}
                                 onClick={onClose}
                             >
                                 Сохранённые фильмы
@@ -75,8 +88,10 @@ export function BurgerMenu({ onClose, isOpen }) {
                     <ul className="burger__list burger__list_type_profile">
                         <li className="burger__item">
                             <Link
-                                to="/signin"
-                                className="burger__button burger__button__type_profile"
+                                to="/profile"
+                                className={`burger__button burger__button__type_profile link ${
+                                    profileLink ? 'burger__button-active' : ''
+                                }`}
                                 onClick={onClose}
                             >
                                 Аккаунт
@@ -84,8 +99,8 @@ export function BurgerMenu({ onClose, isOpen }) {
                         </li>
                         <li className="burger__item">
                             <Link
-                                to="/signin"
-                                className="burger__button"
+                                to="/profile"
+                                className="burger__button link"
                                 onClick={onClose}
                             >
                                 <button className="burger__button-profile">

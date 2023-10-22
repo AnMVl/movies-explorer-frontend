@@ -5,7 +5,9 @@ import logo from '../../images/icons/header__logo.svg';
 export function SignUp() {
     return (
         <section className="signUp">
-            <img src={logo} alt="Логотип" className="signUp__logo" />
+            <Link to="/">
+                <img src={logo} alt="Логотип" className="signUp__logo" />
+            </Link>
             <h2 className="signUp__title">Добро пожаловать!</h2>
             <form method="post" noValidate className="signUp__form-container">
                 <fieldset className="signUp__input-container">

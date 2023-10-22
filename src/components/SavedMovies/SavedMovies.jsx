@@ -1,11 +1,11 @@
+import './SavedMovies.css';
 import { useState } from 'react';
 import { AuthHeader } from '../AuthHeader/AuthHeader';
 import { SearchForm } from '../SearchForm/SearchForm';
 import { MoviesCardList } from '../MoviesCardList/MoviesCardList';
 import { Footer } from '../Footer/Footer';
-import './Movies.css';
 
-export function Movies({ burgerClick }) {
+export function SavedMovies({ burgerClick }) {
     const [isCheck, setIsCheck] = useState(false);
 
     function checkboxClick() {

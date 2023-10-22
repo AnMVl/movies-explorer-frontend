@@ -1,0 +1,138 @@
+.profile {
+    max-width: 410px;
+    padding-top: 71px;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile__userName{
+    margin: 0 0 120px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29.05px;
+}
+
+.profile__form{
+    width: 100%;
+    margin: 0 0 205px;
+}
+
+.profile__input-container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    border: none;
+    position: relative;
+}
+
+.profile__input-name{
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13.31px;
+    position: absolute;
+    top: 3px;
+}
+
+.profile__input{
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(255, 255, 255, 1);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 13.31px;
+    height: 15px;
+}
+
+.profile__input-border{
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+.profile__input:focus{
+    outline: 1px solid #4285F4;
+    border-radius: 1px;
+}
+
+.button{
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    width: 130px;
+    font-size: 13px;
+    line-height: 15.73px;
+}
+
+.profile__button-edit {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+
+.profile__button-exit{
+    margin-top: 16px;
+    color: rgba(238, 52, 101, 1);
+    font-weight: 500;
+}
+
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .profile {
+        padding-top: 230px;
+    }
+
+    .profile__userName {
+        margin: 0 0 94px 0;
+    }
+
+    .profile__form {
+        margin: 0 0 195px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .profile {
+        padding: 230px 15px 0 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile {
+        padding-top: 64px;
+        max-width: 260px;
+    }
+
+    .profile__userName {
+        margin: 0 0 78px 0;
+    }
+
+    .profile__form {
+        margin: 0 0 363px;
+    }
+    
+    .button {
+        width: 115px;
+        font-size: 12px;
+        line-height: 14.52px;
+    }
+}

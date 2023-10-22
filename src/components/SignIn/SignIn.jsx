@@ -5,7 +5,9 @@ import '../SignIn/SignIn.css';
 export function SignIn() {
     return (
         <section className="signIn">
-            <img src={logo} alt="Логотип" className="signIn__logo" />
+            <Link to="/">
+                <img src={logo} alt="Логотип" className="signIn__logo" />
+            </Link>
             <h2 className="signIn__title">Рады видеть!</h2>
             <form method="post" noValidate className="signIn__form-container">
                 <fieldset className="signIn__input-container">
