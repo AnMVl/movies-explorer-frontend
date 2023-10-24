@@ -21,7 +21,7 @@ export function SearchForm({ isCheck, checkboxClick }) {
                         placeholder="Фильм"
                         name="movies"
                     />
-                    <button className="searchForm__button" type="submit">
+                    <button className="searchForm__button link" type="submit">
                         Поиск
                     </button>
                     <FormCheckBox

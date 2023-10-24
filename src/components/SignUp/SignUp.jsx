@@ -52,7 +52,7 @@ export function SignUp() {
                     />
                     <span id="error-pass" className="signUp__error"></span>
                 </fieldset>
-                <button className="signUp__button" type="submit">
+                <button className="signUp__button link" type="submit">
                     Зарегистрироваться
                 </button>
             </form>
@@ -60,7 +60,7 @@ export function SignUp() {
                 Уже зарегистрированы?{' '}
                 <Link
                     to="/signin"
-                    className="signUp__info signUp__info_color_blue"
+                    className="signUp__info signUp__info_color_blue link"
                 >
                     Войти
                 </Link>

@@ -62,6 +62,12 @@
     line-height: 18px;
 }
 
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .searchForm {
         padding: 65px 30px 78px 30px;

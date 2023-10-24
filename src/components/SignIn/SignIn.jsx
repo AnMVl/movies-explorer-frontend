@@ -38,7 +38,7 @@ export function SignIn() {
                     />
                     <span id="error-pass" className="signIn__error"></span>
                 </fieldset>
-                <button className="signIn__button" type="submit">
+                <button className="signIn__button link" type="submit">
                     Войти
                 </button>
             </form>
@@ -46,7 +46,7 @@ export function SignIn() {
                 Еще не зарегистрированы?{' '}
                 <Link
                     to="/signup"
-                    className="signIn__info signIn__info_color_blue"
+                    className="signIn__info signIn__info_color_blue link"
                 >
                     Регистрация
                 </Link>

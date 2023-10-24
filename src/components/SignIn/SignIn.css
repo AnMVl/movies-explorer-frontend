@@ -81,6 +81,12 @@
     color: rgba(66, 133, 244, 1);
 }
 
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .signIn {
         padding-top: 232px;

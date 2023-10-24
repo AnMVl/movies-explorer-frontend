@@ -82,6 +82,12 @@
     text-decoration: none;
 }
 
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
     .signUp {
         padding-top: 232px;
