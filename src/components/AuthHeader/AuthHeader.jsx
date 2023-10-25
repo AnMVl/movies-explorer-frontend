@@ -49,7 +49,7 @@ export function AuthHeader({ burgerClick, auth }) {
                         </Link>
                     </li>
                     <li className="header__item">
-                        <Link to="/signup" className="header__button link">
+                        <Link to="/profile" className="header__button link">
                             <button
                                 className={`header__button-profile ${
                                     auth

@@ -17,6 +17,7 @@ export function MoviesCardList() {
                 <MoviesCard />
                 <MoviesCard />
                 <MoviesCard />
+                <MoviesCard />
             </ul>
             {shouldShowButton && (
                 <button className="movies-card-list__button link">Ещё</button>

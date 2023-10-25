@@ -9,15 +9,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 276px;
+    padding-top: 245px;
 }
 
 .not-found__title {
     margin: 0;
-    padding: 0 0 38px 0;
-    width: 252px;
-    height: 130px;
-    background: url(../../images/404.png) no-repeat ;
+    padding: 0 0 5px 0;
+    font-size: 140px;
+    font-weight: 400;
+    line-height: 169.43px;
 }
 
 .not-found__text {
@@ -38,12 +38,13 @@
 
 @media screen and (max-width: 320px) {
     .not-found {
-        padding-top: 347px;
+        padding-top: 330px;
     }
 
-    .not-found__img {
-        width: 143px;
-        padding-bottom: 30px;
+    .not-found__title {
+        font-size: 80px;
+        line-height: 96.82px;
+        padding: 0 0 10px 0;
     }
 
     .not-found__text {

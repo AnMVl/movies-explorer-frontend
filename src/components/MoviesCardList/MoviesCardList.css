@@ -16,7 +16,7 @@
 }
 
 .movies-card-list__button{
-    margin: 63px 0 37px 0;
+    margin: 59px 0 37px 0;
     padding: 0;
     border: none;
     border-radius: 6px;
@@ -43,7 +43,11 @@
     .movies-card-list__catalog {
     grid-template-columns: repeat(auto-fit, 342px);
     column-gap: 24px;
-    row-gap: 35px;
+    row-gap: 32px;
+    }
+
+    .movies-card-list__button {
+        margin: 76px 0 40px 0;
     }
 }
 
@@ -60,7 +64,7 @@
     }
 
     .movies-card-list__button {
-        margin: 84px 0 37px 0;
+        margin: 84px 0 39px 0;
     }
 
 }
