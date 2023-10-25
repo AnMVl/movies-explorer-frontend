@@ -3,7 +3,7 @@
     background-color: #073042;
     display: flex;
     justify-content: space-between;
-    padding: 75px 70px 75px 70px;
+    padding: 71px 70px 75px 70px;
 }
 
 .promo__text-container {
@@ -29,19 +29,20 @@
 }
 
 .promo__button {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    border: rgba(255, 255, 255, 0.5) 1px solid;
-    background-color: #073042;
-    width: 129px;
-    height: 36px;
+    display: block;
     border-radius: 3px;
-    margin: 0;
-    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 1);
+    width: 129px;
+    min-height: 36px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
     font-size: 12px;
+    font-weight: 500;
     line-height: 16px;
-    color: #fff;
+    color: rgba(255, 255, 255, 1);
+    transition: opacity .3s linear;
 }
 
 .link:hover {
@@ -60,7 +61,7 @@
         flex-direction: column-reverse;
         align-items: center;
         text-align: center;
-        padding: 140px 44px 76px 44px;
+        padding: 137px 44px 76px 44px;
         gap: 48px;
     }
 
@@ -75,11 +76,12 @@
         max-width: 260px;
         margin-bottom: 93px;
     }
+
 }
 
 @media screen and (max-width: 320px) {
     .promo {
-        padding: 70px 10px 30px 10px;
+        padding: 67px 10px 30px 10px;
         gap: 44px;
     }
 
@@ -96,5 +98,9 @@
     .promo__img {
         width: 210px;
         height: 206px;
+    }
+
+    .promo__button {
+        margin: 0 auto;
     }
 }

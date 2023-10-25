@@ -1,5 +1,6 @@
 import './Profile.css';
 import { AuthHeader } from '../AuthHeader/AuthHeader';
+import { Link } from 'react-router-dom';
 
 export function Profile({ burgerClick }) {
     return (
@@ -42,9 +43,9 @@ export function Profile({ burgerClick }) {
                 <button className="button profile__button-edit link">
                     Редактировать
                 </button>
-                <button className="button profile__button-exit link">
+                <Link to="/" className="button profile__button-exit link">
                     Выйти из аккаунта
-                </button>
+                </Link>
             </section>
         </>
     );

@@ -1,6 +1,6 @@
 .searchForm {
     width: 100%;
-    padding: 70px 70px 78px 70px;
+    padding: 66px 70px 78px 70px;
     box-sizing: border-box;
 }
 
@@ -40,7 +40,7 @@
 
 .searchForm__button {
     position: absolute;
-    top: 9px;
+    top: 11px;
     right: 9px;
     margin: 0;
     padding: 0;

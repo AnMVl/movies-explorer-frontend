@@ -85,6 +85,8 @@
 }
 
 .profile__button-exit{
+    text-decoration: none;
+    text-align: center;
     margin-top: 16px;
     color: rgba(238, 52, 101, 1);
     font-weight: 500;

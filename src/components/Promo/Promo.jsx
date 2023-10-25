@@ -1,3 +1,4 @@
+import { HashLink } from 'react-router-hash-link';
 import promoLogo from '../../images/icons/promo__img.png';
 import './Promo.css';
 
@@ -12,7 +13,9 @@ export function Promo() {
                     Листайте ниже, чтобы узнать больше про этот проект и его
                     создателя.
                 </p>
-                <button className="promo__button link">Узнать больше</button>
+                <HashLink to="#aboutProject" className="promo__button link">
+                    Узнать больше
+                </HashLink>
             </div>
             <img className="promo__img" src={promoLogo} alt="Плнета" />
         </section>

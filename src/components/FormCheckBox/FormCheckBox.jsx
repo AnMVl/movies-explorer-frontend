@@ -2,7 +2,7 @@ import './FormCheckBox.css';
 
 export function FormCheckBox({ isCheck, checkboxClick }) {
     return (
-        <label className="checkbox__container">
+        <label className="checkbox">
             <div className="checkbox__input-container">
                 <input
                     type="checkbox"

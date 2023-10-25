@@ -70,6 +70,7 @@
 
 .signIn__info {
     color: rgba(139, 139, 139, 1);
+    text-decoration: none;
     text-align: center;
     margin: 0;
     font-weight: 400;
