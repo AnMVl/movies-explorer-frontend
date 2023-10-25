@@ -1,23 +1,28 @@
-.signUp {
+.main {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.sign-up {
     max-width: 396px;
     padding-top: 70px;
     margin: 0 auto;
 }
 
-.signUp__logo {
+.sign-up__logo {
     width: 38px;
     height: 38px;
     margin-bottom: 37px;
 }
 
-.signUp__title {
+.sign-up__title {
     margin: 0 0 40px 0;
     font-weight: 500;
     font-size: 24px;
     line-height: 29.05px;
 }
 
-.signUp__form-container {
+.sign-up__form-container {
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -25,14 +30,14 @@
     gap: 24px;
 }
 
-.signUp__input-container {
+.sign-up__input-container {
     max-width: 100%;
     border: none;
     margin: 0;
     padding: 0;
 }
 
-.signUp__text {
+.sign-up__text {
     margin: 0 0 4.5px 0;
     color: rgba(139, 139, 139, 1);
     font-weight: 400;
@@ -40,13 +45,13 @@
     line-height: 12.1px;
 }
 
-.signUp__input {
+.sign-up__input {
     margin: 0;
     font-weight: 400;
     font-size: 14.2px;
     line-height: 16.94px;
     color: rgba(255, 255, 255, 1);
-    padding: 0 0 8px 0;
+    padding: 0 0 9.5px 0;
     border: none;
     background-color: rgba(32, 32, 32, 1);
     border-bottom: rgba(66, 66, 66, 1) 1px solid;
@@ -54,7 +59,7 @@
     outline: none;
 }
 
-.signUp__button {
+.sign-up__button {
     margin: 128.5px 0 17px 0;
     padding: 0;
     width: 100%;
@@ -68,7 +73,7 @@
     border-radius: 3px;
 }
 
-.signUp__info {
+.sign-up__info {
     color: rgba(139, 139, 139, 1);
     text-align: center;
     margin: 0;
@@ -77,7 +82,7 @@
     line-height: 16.94px;
 }
 
-.signUp__info_color_blue {
+.sign-up__info_color_blue {
     color: rgba(66, 133, 244, 1);
     text-decoration: none;
 }
@@ -89,40 +94,40 @@
 }
 
 @media screen and (max-width: 768px) {
-    .signUp {
+    .sign-up {
         padding-top: 232px;
     }
 }
 
 @media screen and (max-width: 460px) {
-    .signUp {
+    .sign-up {
         padding: 232px 30px 0 30px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .signUp {
+    .sign-up {
         padding: 56px 30px 0 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .signUp__logo {
-        margin-bottom: 50px;
+    .sign-up__logo {
+        margin-bottom: 46px;
     }
 
-    .signUp__title {
+    .sign-up__title {
         margin: 0 0 80px 0;
     }
 
-    .signUp__button {
+    .sign-up__button {
         margin: 217.5px 0 0px 0;
         font-size: 12.1px;
         line-height: 14.52px;
     }
 
-    .signUp__info {
+    .sign-up__info {
         margin-top: 14px;
         font-size: 12.2px;
         line-height: 14.52px;

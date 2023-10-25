@@ -13,7 +13,7 @@ export function Promo() {
                     Листайте ниже, чтобы узнать больше про этот проект и его
                     создателя.
                 </p>
-                <HashLink to="#aboutProject" className="promo__button link">
+                <HashLink to="#about-project" className="promo__button link">
                     Узнать больше
                 </HashLink>
             </div>

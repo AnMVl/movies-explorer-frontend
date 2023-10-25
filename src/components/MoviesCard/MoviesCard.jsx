@@ -20,20 +20,20 @@ export function MoviesCard() {
     }
 
     return (
-        <li className="moviesCard">
-            <article className="moviesCard__content">
-                <div className="moviesCard__title-container">
-                    <Link className="moviesCard__title">
+        <li className="movies-card">
+            <article className="movies-card__content">
+                <div className="movies-card__title-container">
+                    <Link className="movies-card__title">
                         В погоне за Бенкси
                     </Link>
-                    <p className="moviesCard__duration">0ч 42м</p>
+                    <p className="movies-card__duration">0ч 42м</p>
                 </div>
-                <div className="moviesCard__container">
+                <div className="movies-card__container">
                     <Link>
                         <img
                             src={cardImageTest}
                             alt="Изображение фильма"
-                            className="moviesCard__image"
+                            className="movies-card__image"
                         />
                     </Link>
                     {changeButton ? (

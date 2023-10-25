@@ -9,9 +9,9 @@ export function MoviesCardList() {
     const location = useLocation();
     const shouldShowButton = location.pathname !== '/saved-movies';
     return (
-        <section className="moviesCardList">
+        <section className="movies-card-list">
             {isLoading ? <Preloader /> : null}
-            <ul className="moviesCardList__catalog">
+            <ul className="movies-card-list__catalog">
                 <MoviesCard />
                 <MoviesCard />
                 <MoviesCard />
@@ -19,7 +19,7 @@ export function MoviesCardList() {
                 <MoviesCard />
             </ul>
             {shouldShowButton && (
-                <button className="moviesCardList__button link">Ещё</button>
+                <button className="movies-card-list__button link">Ещё</button>
             )}
         </section>
     );

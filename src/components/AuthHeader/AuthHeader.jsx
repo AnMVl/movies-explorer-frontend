@@ -20,7 +20,7 @@ export function AuthHeader({ burgerClick, auth }) {
                         <Link
                             to="/movies"
                             className={`header__button link ${
-                                movieLink ? 'header__button-active' : ''
+                                movieLink ? 'header__button_type_active' : ''
                             }`}
                         >
                             Фильмы
@@ -30,7 +30,9 @@ export function AuthHeader({ burgerClick, auth }) {
                         <Link
                             to="/saved-movies"
                             className={`header__button link ${
-                                savedmovieLink ? 'header__button-active' : ''
+                                savedmovieLink
+                                    ? 'header__button_type_active'
+                                    : ''
                             }`}
                         >
                             Сохранённые фильмы
@@ -40,7 +42,7 @@ export function AuthHeader({ burgerClick, auth }) {
                         <Link
                             to="/profile"
                             className={`header__button link ${
-                                profileLink ? 'header__button-active' : ''
+                                profileLink ? 'header__button_type_active' : ''
                             }`}
                         >
                             Аккаунт

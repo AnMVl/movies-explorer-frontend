@@ -2,7 +2,7 @@ import '../ActiveButton/ActiveButton.css';
 export function ActiveButton({ handleButtonClick }) {
     return (
         <button
-            className="activeButton link"
+            className="active-button link"
             onClick={handleButtonClick}
         ></button>
     );

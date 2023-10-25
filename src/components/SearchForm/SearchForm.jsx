@@ -3,17 +3,17 @@ import { FormCheckBox } from '../FormCheckBox/FormCheckBox';
 
 export function SearchForm({ isCheck, checkboxClick }) {
     return (
-        <section className="searchForm">
+        <section className="search-form">
             <form
                 method="post"
                 noValidate
-                className="searchForm__form-container"
+                className="search-form__form-container"
             >
-                <fieldset className="searchForm__input-container">
+                <fieldset className="search-form__input-container">
                     <input
                         id="movies"
                         type="text"
-                        className="searchForm__input"
+                        className="search-form__input"
                         autoComplete="off"
                         required
                         minLength="2"
@@ -21,7 +21,7 @@ export function SearchForm({ isCheck, checkboxClick }) {
                         placeholder="Фильм"
                         name="movies"
                     />
-                    <button className="searchForm__button link" type="submit">
+                    <button className="search-form__button link" type="submit">
                         Поиск
                     </button>
                     <FormCheckBox

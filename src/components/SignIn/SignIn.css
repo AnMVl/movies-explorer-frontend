@@ -1,23 +1,28 @@
-.signIn {
+.main {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.sign-in {
     max-width: 396px;
     padding-top: 70px;
     margin: 0 auto;
 }
 
-.signIn__logo {
+.sign-in__logo {
     width: 38px;
     height: 38px;
     margin-bottom: 37px;
 }
 
-.signIn__title {
+.sign-in__title {
     margin: 0 0 40px 0;
     font-weight: 500;
     font-size: 24px;
     line-height: 29.05px;
 }
 
-.signIn__form-container {
+.sign-in__form-container {
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -25,14 +30,14 @@
     gap: 24px;
 }
 
-.signIn__input-container {
+.sign-in__input-container {
     max-width: 100%;
     border: none;
     margin: 0;
     padding: 0;
 }
 
-.signIn__text {
+.sign-in__text {
     margin: 0 0 4.5px 0;
     color: rgba(139, 139, 139, 1);
     font-weight: 400;
@@ -40,13 +45,13 @@
     line-height: 12.1px;
 }
 
-.signIn__input {
+.sign-in__input {
     margin: 0;
     font-weight: 400;
     font-size: 14.2px;
     line-height: 16.94px;
     color: rgba(255, 255, 255, 1);
-    padding: 0 0 8px 0;
+    padding: 0 0 9px 0;
     border: none;
     background-color: rgba(32, 32, 32, 1);
     border-bottom: rgba(66, 66, 66, 1) 1px solid;
@@ -54,7 +59,7 @@
     outline: none;
 }
 
-.signIn__button {
+.sign-in__button {
     margin: 197px 0 16px 0;
     padding: 0;
     width: 100%;
@@ -68,7 +73,7 @@
     border-radius: 3px;
 }
 
-.signIn__info {
+.sign-in__info {
     color: rgba(139, 139, 139, 1);
     text-decoration: none;
     text-align: center;
@@ -78,7 +83,7 @@
     line-height: 16.94px;
 }
 
-.signIn__info_color_blue {
+.sign-in__info_color_blue {
     color: rgba(66, 133, 244, 1);
 }
 
@@ -89,40 +94,40 @@
 }
 
 @media screen and (max-width: 768px) {
-    .signIn {
+    .sign-in {
         padding-top: 232px;
     }
 }
 
 @media screen and (max-width: 430px) {
-.signIn {
+.sign-in {
         padding: 232px 30px 0 30px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .signIn {
+    .sign-in {
         padding: 56px 30px 0 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .signIn__logo {
-        margin-bottom: 50px;
+    .sign-in__logo {
+        margin-bottom: 45.9px;
     }
 
-    .signIn__title {
+    .sign-in__title {
         margin: 0 0 80px 0;
     }
 
-    .signIn__button {
+    .sign-in__button {
         margin: 286px 0 0px 0;
         font-size: 12.1px;
         line-height: 14.52px;
     }
 
-    .signIn__info {
+    .sign-in__info {
         margin-top: 14px;
         font-size: 12.2px;
         line-height: 14.52px;
