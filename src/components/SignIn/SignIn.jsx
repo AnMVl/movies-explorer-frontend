@@ -22,6 +22,7 @@ export function SignIn() {
                             type="email"
                             className="sign-in__input"
                             autoComplete="off"
+                            placeholder="Ваш E-mail"
                             required
                             minLength="2"
                             maxLength="40"
@@ -39,6 +40,7 @@ export function SignIn() {
                             type="password"
                             className="sign-in__input"
                             autoComplete="off"
+                            placeholder="Ваш пароль"
                             required
                             minLength="2"
                             maxLength="200"
@@ -54,7 +56,7 @@ export function SignIn() {
                     Еще не зарегистрированы?{' '}
                     <Link
                         to="/signup"
-                        className="sign-in__info sign-in__info_color_blue link"
+                        className="sign-in__info-link sign-in__info-link_color_blue link"
                     >
                         Регистрация
                     </Link>

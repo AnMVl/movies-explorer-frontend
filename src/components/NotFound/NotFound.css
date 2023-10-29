@@ -9,20 +9,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 276px;
+    padding-top: 245px;
 }
 
 .not-found__title {
     margin: 0;
-    padding: 0 0 38px 0;
-    width: 252px;
-    height: 130px;
-    background: url(../../images/404.png) no-repeat ;
+    margin: 0 0 5px 0;
+    width: 400px;
+    height: 169px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 140px;
+    line-height: 169.43px;
+
 }
 
 .not-found__text {
     margin: 0;
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 16px;
     line-height: 19.36px;
     padding-bottom: 185px;
@@ -31,9 +35,15 @@
 .not-found__link {
     text-decoration: none;
     color: rgba(66, 133, 244, 1);
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 14px;
     line-height: 16.94px                                                    
+}
+
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {

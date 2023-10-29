@@ -19,18 +19,16 @@ export function SignUp() {
                         <p className="sign-up__text">Имя</p>
                         <input
                             id="name"
-                            type="name"
+                            type="text"
                             className="sign-up__input"
                             autoComplete="off"
+                            placeholder="Ваше имя"
                             required
                             minLength="2"
                             maxLength="40"
                             name="name"
                         />
-                        <span
-                            id="error-email"
-                            className="sign-up__error"
-                        ></span>
+                        <span id="error-name" className="sign-up__error"></span>
                     </fieldset>
                     <fieldset className="sign-up__input-container">
                         <p className="sign-up__text">E-mail</p>
@@ -39,12 +37,16 @@ export function SignUp() {
                             type="email"
                             className="sign-up__input"
                             autoComplete="off"
+                            placeholder="Ваш E-mail"
                             required
                             minLength="2"
                             maxLength="40"
                             name="email"
                         />
-                        <span id="error-email" className="signUp__error"></span>
+                        <span
+                            id="error-email"
+                            className="sign-up__error"
+                        ></span>
                     </fieldset>
                     <fieldset className="sign-up__input-container">
                         <p className="sign-up__text">Пароль</p>
@@ -53,6 +55,7 @@ export function SignUp() {
                             type="password"
                             className="sign-up__input"
                             autoComplete="off"
+                            placeholder="Ваш пароль"
                             required
                             minLength="2"
                             maxLength="200"
@@ -68,7 +71,7 @@ export function SignUp() {
                     Уже зарегистрированы?{' '}
                     <Link
                         to="/signin"
-                        className="sign-up__info sign-up__info_color_blue link"
+                        className="sign-up__info-link sign-up__info-link_color_blue link"
                     >
                         Войти
                     </Link>

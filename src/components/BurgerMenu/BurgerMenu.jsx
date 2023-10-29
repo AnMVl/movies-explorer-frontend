@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import '../BurgerMenu/BurgerMenu.css';
-import buttonImg from '../../images/icons/header-auth-img.svg';
 import { Link, useLocation } from 'react-router-dom';
 
 export function BurgerMenu({ onClose, isOpen }) {
@@ -36,9 +35,7 @@ export function BurgerMenu({ onClose, isOpen }) {
 
     return (
         <section
-            className={`burger popup_type_delete-confirmed ${
-                isOpen ? 'burger_opened' : ''
-            }`}
+            className={`burger ${isOpen ? 'burger_opened' : ''}`}
             onClick={handlePopupClose}
         >
             <div className="burger__container">
@@ -91,7 +88,7 @@ export function BurgerMenu({ onClose, isOpen }) {
                         <li className="burger__item">
                             <Link
                                 to="/profile"
-                                className={`burger__button burger__button__type_profile link ${
+                                className={`burger__button burger__button_type_profile link ${
                                     profileLink
                                         ? 'burger__button_type_active'
                                         : ''
@@ -107,12 +104,7 @@ export function BurgerMenu({ onClose, isOpen }) {
                                 className="burger__button link"
                                 onClick={onClose}
                             >
-                                <button className="burger__button-profile">
-                                    <img
-                                        src={buttonImg}
-                                        alt="Кнопка личного кабинета пользователя"
-                                    />
-                                </button>
+                                <div className="burger__button-profile"></div>
                             </Link>
                         </li>
                     </ul>

@@ -82,7 +82,7 @@
     line-height: 16.94px;
 }
 
-.sign-up__info_color_blue {
+.sign-up__info-link_color_blue {
     color: rgba(66, 133, 244, 1);
     text-decoration: none;
 }
@@ -91,6 +91,10 @@
     opacity: 0.8;
     transition: opacity 0.1s ease-in-out;
     cursor: pointer;
+}
+
+.sign-up__input:focus {
+    border-bottom: rgba(52, 86, 243, 1) 1px solid;
 }
 
 @media screen and (max-width: 768px) {

@@ -13,7 +13,7 @@ export function Portfolio() {
                         target="_blank"
                     >
                         <p className="portfolio__subtitle">Статичный сайт</p>
-                        <button className="portfolio__button"></button>
+                        <div className="portfolio__button"></div>
                     </Link>
                 </li>
                 <li className="portfolio__link-container">
@@ -23,7 +23,7 @@ export function Portfolio() {
                         target="_blank"
                     >
                         <p className="portfolio__subtitle">Адаптивный сайт</p>
-                        <button className="portfolio__button"></button>
+                        <div className="portfolio__button"></div>
                     </Link>
                 </li>
                 <li className="portfolio__link-container">
@@ -35,7 +35,7 @@ export function Portfolio() {
                         <p className="portfolio__subtitle">
                             Одностраничное приложение
                         </p>
-                        <button className="portfolio__button"></button>
+                        <div className="portfolio__button"></div>
                     </Link>
                 </li>
             </ul>

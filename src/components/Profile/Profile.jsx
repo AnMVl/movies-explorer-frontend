@@ -15,10 +15,11 @@ export function Profile({ burgerClick }) {
                             type="text"
                             name="name"
                             autoComplete="off"
+                            placeholder="Введите Ваше имя"
                             required
                             minLength="2"
                             maxLength="40"
-                            className="profile__input profile__input_type_border"
+                            className="profile__input"
                         />
                         <span id="error-name" className="profile__error"></span>
                     </fieldset>
@@ -29,6 +30,7 @@ export function Profile({ burgerClick }) {
                             type="text"
                             name="e-mail"
                             autoComplete="off"
+                            placeholder="Введите Ваш Email"
                             required
                             minLength="2"
                             maxLength="40"
