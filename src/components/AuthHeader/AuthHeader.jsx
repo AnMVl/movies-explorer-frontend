@@ -60,10 +60,13 @@ export function AuthHeader({ burgerClick, auth }) {
                             Аккаунт
                         </Link>
                     </li>
-                    <li className="header__item">
-                        <Link to="/signup" className="header__button link">
-                            <button
-                                className={`header__button-profile ${
+                    <li className="auth-header__item">
+                        <Link
+                            to="/profile"
+                            className="auth-header__button link"
+                        >
+                            <div
+                                className={`auth-header__button-profile ${
                                     auth
                                         ? 'auth-header__button-profile_type_movies'
                                         : ''

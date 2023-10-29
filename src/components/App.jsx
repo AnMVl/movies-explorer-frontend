@@ -12,7 +12,7 @@ import { Profile } from './Profile/Profile';
 import { useCallback, useState } from 'react';
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true);
     const [burgerPopupOpen, setBurgerPopupOpen] = useState(false);
 
     function handleBurgerPopupClick() {

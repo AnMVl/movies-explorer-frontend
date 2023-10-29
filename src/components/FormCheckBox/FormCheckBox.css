@@ -1,5 +1,5 @@
 .checkbox {
-    padding-bottom: 45.5px;
+    padding-bottom: 43px;
     display: flex;
     align-self: flex-start;
     cursor: pointer;
@@ -83,12 +83,6 @@
 @media screen and (max-width: 320px) {
     .checkbox {
         padding-bottom: 61px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .checkbox {
-        padding-bottom: 60px;
     }
 }
 
