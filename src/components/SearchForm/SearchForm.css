@@ -70,7 +70,11 @@
 
 @media screen and (max-width: 768px) {
     .search-form {
+<<<<<<< HEAD
         padding: 65px 30px 80.5px 30px;
+=======
+        padding: 64px 30px 79px 30px;
+>>>>>>> 86115f9566381eb713fa0f18d183c6a39e50c6b5
     }
 }
 

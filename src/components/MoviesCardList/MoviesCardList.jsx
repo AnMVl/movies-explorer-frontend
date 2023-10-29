@@ -14,6 +14,9 @@ export function MoviesCardList() {
             <ul className="movies-card-list__catalog">
                 <MoviesCard />
                 <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
+                <MoviesCard />
             </ul>
             {shouldShowButton && (
                 <button className="movies-card-list__button link">Ещё</button>
