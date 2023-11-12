@@ -1,8 +1,30 @@
 import '../SignUp/SignUp.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/icons/header__logo.svg';
+import { useState } from 'react';
 
-export function SignUp() {
+export function SignUp({ registration }) {
+    const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleChangeUserName(evt) {
+        setUserName(evt.target.value);
+    }
+
+    function handleChangeEmail(evt) {
+        setEmail(evt.target.value);
+    }
+
+    function handleChangePassword(evt) {
+        setPassword(evt.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        registration(userName, email, password);
+    };
+
     return (
         <main className="main">
             <section className="sign-up">
@@ -14,6 +36,7 @@ export function SignUp() {
                     method="post"
                     noValidate
                     className="sign-up__form-container"
+                    onSubmit={handleSubmit}
                 >
                     <fieldset className="sign-up__input-container">
                         <p className="sign-up__text">Имя</p>
@@ -26,6 +49,8 @@ export function SignUp() {
                             minLength="2"
                             maxLength="40"
                             name="name"
+                            value={userName}
+                            onChange={handleChangeUserName}
                         />
                         <span
                             id="error-email"
@@ -43,6 +68,8 @@ export function SignUp() {
                             minLength="2"
                             maxLength="40"
                             name="email"
+                            value={email}
+                            onChange={handleChangeEmail}
                         />
                         <span id="error-email" className="signUp__error"></span>
                     </fieldset>
@@ -57,6 +84,8 @@ export function SignUp() {
                             minLength="2"
                             maxLength="200"
                             name="password"
+                            value={password}
+                            onChange={handleChangePassword}
                         />
                         <span id="error-pass" className="sign-up__error"></span>
                     </fieldset>
