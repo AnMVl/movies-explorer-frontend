@@ -100,7 +100,7 @@ export function MoviesCardList({
                     })
                 ) : pathname === '/movies' ? (
                     <span className="movies-card-list__serch-error">
-                        «Чтобы увидеть список фильмоа выполните поиск»
+                        «Чтобы увидеть список фильмов выполните поиск»
                     </span>
                 ) : (
                     <span className="movies-card-list__serch-error">
