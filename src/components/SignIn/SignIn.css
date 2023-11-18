@@ -35,6 +35,8 @@
     border: none;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .sign-in__text {
@@ -59,6 +61,10 @@
     outline: none;
 }
 
+.sign-in__input_type_error{
+color: #EE3465;
+}
+
 .sign-in__button {
     margin: 197px 0 16px 0;
     padding: 0;
@@ -71,6 +77,12 @@
     background-color: rgba(66, 133, 244, 1);
     border: none;
     border-radius: 3px;
+}
+
+.sign-in__button_type_disabled {
+    background: #f8f8f8;
+    color: #c2c2c2;
+    cursor: default;
 }
 
 .sign-in__info {
@@ -87,10 +99,33 @@
     color: rgba(66, 133, 244, 1);
 }
 
+.sign-in__error {
+    max-width: 100%;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #EE3465;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+}
+
 .link:hover {
     opacity: 0.8;
     transition: opacity 0.1s ease-in-out;
     cursor: pointer;
+}
+
+.sign-in__api-error{
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13.31px;
+    color: rgba(255, 0, 76, 1);
+    min-height: 14px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {

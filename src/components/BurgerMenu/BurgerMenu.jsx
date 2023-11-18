@@ -36,9 +36,7 @@ export function BurgerMenu({ onClose, isOpen }) {
 
     return (
         <section
-            className={`burger popup_type_delete-confirmed ${
-                isOpen ? 'burger_opened' : ''
-            }`}
+            className={`burger ${isOpen ? 'burger_opened' : ''}`}
             onClick={handlePopupClose}
         >
             <div className="burger__container">

@@ -7,6 +7,7 @@
     max-width: 396px;
     padding-top: 70px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .sign-up__logo {
@@ -32,12 +33,15 @@
 
 .sign-up__input-container {
     max-width: 100%;
+    position: relative;
     border: none;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .sign-up__text {
+    max-width: 100%;
     margin: 0 0 4.5px 0;
     color: rgba(139, 139, 139, 1);
     font-weight: 400;
@@ -53,10 +57,14 @@
     color: rgba(255, 255, 255, 1);
     padding: 0 0 9.5px 0;
     border: none;
-    background-color: rgba(32, 32, 32, 1);
+    background-color: transparent;
     border-bottom: rgba(66, 66, 66, 1) 1px solid;
     width: 100%;
     outline: none;
+}
+
+.sign-up__input_type_error {
+    color: #EE3465;
 }
 
 .sign-up__button {
@@ -71,6 +79,12 @@
     background-color: rgba(66, 133, 244, 1);
     border: none;
     border-radius: 3px;
+}
+
+.sign-up__button_type_disabled {
+    background: #f8f8f8;
+    color: #c2c2c2;
+    cursor: default;
 }
 
 .sign-up__info {
@@ -91,6 +105,29 @@
     opacity: 0.8;
     transition: opacity 0.1s ease-in-out;
     cursor: pointer;
+}
+
+.sign-up__error {
+    max-width: 100%;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #EE3465;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+}
+
+.sign-up__api-error {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13.31px;
+    color: rgba(255, 0, 76, 1);
+    min-height: 14px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {

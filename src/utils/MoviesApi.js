@@ -1,23 +1,20 @@
 class MoviesApi {
-    constructor({ url }) {
-        this._url = url;
+    constructor(options) {
+        this._url = options.baseUrl;
     }
 
-    _checkResponse(res) {
-        if (res.ok) {
-            return res.json();
-        } else {
-            return Promise.reject(`Ошибка: ${res.status}`);
-        }
+    _checkResponse(res) {return res.ok ? res.json() : Promise.reject}
+
+    _request(url, options) {
+        return fetch(`${this._url}${url}`, options)
+        .then(this._checkResponse)
     }
 
     getMovies() {
-        return fetch(`${this._url}`, {
-            method: 'GET',
-        }).then(this._checkResponse);
+        return this._request('/')
     }
-}
-
+    }
+    /*создаю экземпляр класса Api*/
 const moviesApi = new MoviesApi({
     baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
 });

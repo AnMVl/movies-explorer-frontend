@@ -11,6 +11,7 @@ import { Profile } from './Profile/Profile';
 import { ProtectedRoute } from './ProtectedRoute/ProtectedRoute.jsx';
 import mainApi from '../utils/MainApi.js';
 import CurrentUserContext from '../contexts/CurrentUserContext.js';
+import ErrorContext from '../contexts/ErrorContext';
 import { useCallback, useEffect, useState } from 'react';
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
     const [burgerPopupOpen, setBurgerPopupOpen] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
     const [savedMovies, setSavedMovies] = useState([]);
+    const [isPass, setIsPass] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     function handleBurgerPopupClick() {
         setBurgerPopupOpen(true);
@@ -29,27 +32,30 @@ function App() {
     }, []);
 
     useEffect(() => {
-        tokenCheck();
-    }, []);
-
-    const tokenCheck = () => {
-        if (localStorage.getItem('jwt')) {
-            const jwt = localStorage.getItem('jwt');
-            if (jwt) {
-                Promise.all([mainApi.getUserInfo(jwt), mainApi.getMovies(jwt)])
-                    .then(([userData, dataMovies]) => {
-                        setLoggedIn(true);
-                        setSavedMovies(dataMovies);
-                        setCurrentUser(userData);
-                    })
-                    .catch((error) => {
-                        console.log(`Ошибка проверки токена - ${error}`);
-                    });
-            }
+        if (localStorage.jwt) {
+            Promise.all([
+                mainApi.getUserInfo(localStorage.jwt),
+                mainApi.getMovies(localStorage.jwt),
+            ])
+                .then(([userData, dataMovies]) => {
+                    setSavedMovies(dataMovies.reverse());
+                    setCurrentUser(userData);
+                    setLoggedIn(true);
+                })
+                .catch((err) => {
+                    console.error(
+                        `Ошибка при загрузке данных пользователя ${err}`
+                    );
+                    localStorage.clear();
+                });
+        } else {
+            setLoggedIn(false);
+            localStorage.clear();
         }
-    };
+    }, [loggedIn]);
 
     function login(email, password) {
+        setIsPass(true);
         mainApi
             .authorise(email, password)
             .then((data) => {
@@ -60,18 +66,18 @@ function App() {
                     setLoggedIn(true);
                     navigate('/', { replace: true });
                 } else {
-                    console.error(
-                        'Ошибка авторизации: токен не найден в данных',
-                        data
-                    );
+                    console.error('Ошибка авторизации: токен не найден', data);
                 }
             })
             .catch((err) => {
-                console.error(`Ошибка авторизации ${err}`);
-            });
+                setIsError(true);
+                console.error(`Ошибка входа в аккаунт ${err}`);
+            })
+            .finally(() => setIsPass(false));
     }
 
     function registration(username, email, password) {
+        setIsPass(true);
         mainApi
             .register(username, email, password)
             .then((data) => {
@@ -81,8 +87,10 @@ function App() {
                 }
             })
             .catch((err) => {
+                setIsError(true);
                 console.error(`Ошибка регистрации ${err}`);
-            });
+            })
+            .finally(() => setIsPass(false));
     }
 
     function signOut() {
@@ -92,14 +100,17 @@ function App() {
     }
 
     function updateUserData(username, email) {
+        setIsPass(true);
         mainApi
             .setUserInfo(username, email, localStorage.jwt)
             .then((res) => {
                 setCurrentUser(res);
             })
             .catch((err) => {
-                console.error(`Ошибка при редактировании пользователя ${err}`);
-            });
+                setIsError(true);
+                console.error(`Ошибка редактирования пользователя ${err}`);
+            })
+            .finally(() => setIsPass(false));
     }
 
     function deleteMovie(movieId) {
@@ -131,79 +142,100 @@ function App() {
                     setSavedMovies([res, ...savedMovies]);
                 })
                 .catch((err) =>
-                    console.error(`Ошибка добавлении фильма ${err}`)
+                    console.error(`Ошибка добавления фильма ${err}`)
                 );
         }
     }
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
-            <div className="body">
-                <div className="page">
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <Main
-                                    loggedIn={loggedIn}
-                                    burgerClick={handleBurgerPopupClick}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/signin"
-                            element={<SignIn login={login} />}
-                        />
-                        <Route
-                            path="/signup"
-                            element={<SignUp registration={registration} />}
-                        />
-                        <Route
-                            path="/movies"
-                            element={
-                                <ProtectedRoute
-                                    element={Movies}
-                                    loggedIn={loggedIn}
-                                    burgerClick={handleBurgerPopupClick}
-                                    onClose={closeAllPopups}
-                                    isOpen={burgerPopupOpen}
-                                    addMovie={addMovie}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/saved-movies"
-                            element={
-                                <ProtectedRoute
-                                    element={SavedMovies}
-                                    loggedIn={loggedIn}
-                                    burgerClick={handleBurgerPopupClick}
-                                    onClose={closeAllPopups}
-                                    isOpen={burgerPopupOpen}
-                                    savedMovies={savedMovies}
-                                    deleteMovie={deleteMovie}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/profile"
-                            element={
-                                <ProtectedRoute
-                                    element={Profile}
-                                    loggedIn={loggedIn}
-                                    burgerClick={handleBurgerPopupClick}
-                                    onClose={closeAllPopups}
-                                    isOpen={burgerPopupOpen}
-                                    signOut={signOut}
-                                    updateUserData={updateUserData}
-                                />
-                            }
-                        />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
+            <ErrorContext.Provider value={isError}>
+                <div className="body">
+                    <div className="page">
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={
+                                    <Main
+                                        loggedIn={loggedIn}
+                                        burgerClick={handleBurgerPopupClick}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/signin"
+                                element={
+                                    <SignIn
+                                        login={login}
+                                        setIsError={setIsError}
+                                        isPass={isPass}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/signup"
+                                element={
+                                    <SignUp
+                                        registration={registration}
+                                        setIsError={setIsError}
+                                        isPass={isPass}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/movies"
+                                element={
+                                    <ProtectedRoute
+                                        element={Movies}
+                                        loggedIn={loggedIn}
+                                        addMovie={addMovie}
+                                        savedMovies={savedMovies}
+                                        setIsError={setIsError}
+                                        burgerClick={handleBurgerPopupClick}
+                                        onClose={closeAllPopups}
+                                        isOpen={burgerPopupOpen}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/saved-movies"
+                                element={
+                                    <ProtectedRoute
+                                        element={SavedMovies}
+                                        loggedIn={loggedIn}
+                                        savedMovies={savedMovies}
+                                        deleteMovie={deleteMovie}
+                                        setIsError={setIsError}
+                                        burgerClick={handleBurgerPopupClick}
+                                        onClose={closeAllPopups}
+                                        isOpen={burgerPopupOpen}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="/profile"
+                                element={
+                                    <ProtectedRoute
+                                        element={Profile}
+                                        burgerClick={handleBurgerPopupClick}
+                                        onClose={closeAllPopups}
+                                        isOpen={burgerPopupOpen}
+                                        loggedIn={loggedIn}
+                                        signOut={signOut}
+                                        updateUserData={updateUserData}
+                                        setCurrentUser={setCurrentUser}
+                                    />
+                                }
+                            />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </div>
+                    <BurgerMenu
+                        onClose={closeAllPopups}
+                        isOpen={burgerPopupOpen}
+                    />
                 </div>
-                <BurgerMenu onClose={closeAllPopups} isOpen={burgerPopupOpen} />
-            </div>
+            </ErrorContext.Provider>
         </CurrentUserContext.Provider>
     );
 }

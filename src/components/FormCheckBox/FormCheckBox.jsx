@@ -1,13 +1,14 @@
 import './FormCheckBox.css';
 
-export function FormCheckBox({ isCheck, checkboxClick }) {
+export function FormCheckBox({ isCheck, changeShort, firstLoading }) {
     return (
         <label className="checkbox">
             <div className="checkbox__input-container">
                 <input
                     type="checkbox"
                     className="checkbox__button"
-                    onClick={checkboxClick}
+                    onChange={() => changeShort()}
+                    disabled={firstLoading}
                 />
                 <svg
                     className="checkbox__button-svg"

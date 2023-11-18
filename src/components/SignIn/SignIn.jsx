@@ -1,28 +1,22 @@
 import logo from '../../images/icons/header__logo.svg';
 import { Link } from 'react-router-dom';
 import '../SignIn/SignIn.css';
-import { useEffect, useState } from 'react';
+import useFormWithValidation from '../../hooks/useFormValidation';
+import ErrorContext from '../../contexts/ErrorContext';
+import { useCallback, useContext } from 'react';
 
-export function SignIn({ login }) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export function SignIn({ login, setIsError, isPass }) {
+    const { values, handleChange, errors, isValid } = useFormWithValidation();
+    const isError = useContext(ErrorContext);
 
-    function handleChangeEmail(evt) {
-        setEmail(evt.target.value);
-    }
-
-    function handleChangePassword(evt) {
-        setPassword(evt.target.value);
-    }
-    function handleSubmit(e) {
-        e.preventDefault();
-        login(email, password);
-    }
-
-    useEffect(() => {
-        setEmail('');
-        setPassword('');
+    useCallback(() => {
+        setIsError(false);
     }, []);
+
+    function handleSubmitClick(e) {
+        e.preventDefault();
+        login(values.email, values.password);
+    }
 
     return (
         <main className="main">
@@ -35,44 +29,60 @@ export function SignIn({ login }) {
                     method="post"
                     noValidate
                     className="sign-in__form-container"
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmitClick}
                 >
                     <fieldset className="sign-in__input-container">
                         <p className="sign-in__text">E-mail</p>
                         <input
                             id="email"
                             type="email"
-                            className="sign-in__input"
+                            className={`sign-in__input ${
+                                errors.email ? 'sign-in__input_type_error' : ''
+                            }`}
                             autoComplete="off"
                             required
                             minLength="2"
                             maxLength="40"
                             name="email"
-                            value={email}
-                            onChange={handleChangeEmail}
+                            value={values.email}
+                            onChange={handleChange}
+                            disabled={isPass}
                         />
-                        <span
-                            id="error-email"
-                            className="sign-in__error"
-                        ></span>
+                        <span id="error-email" className="sign-in__error">
+                            {errors.email}
+                        </span>
                     </fieldset>
                     <fieldset className="sign-in__input-container">
                         <p className="sign-in__text">Пароль</p>
                         <input
                             id="password"
                             type="password"
-                            className="sign-in__input"
+                            className={`sign-in__input ${
+                                errors.email ? 'sign-in__input_type_error' : ''
+                            }`}
                             autoComplete="off"
                             required
                             minLength="2"
                             maxLength="200"
                             name="password"
-                            value={password}
-                            onChange={handleChangePassword}
+                            value={values.password}
+                            onChange={handleChange}
+                            disabled={isPass}
                         />
-                        <span id="error-pass" className="sign-in__error"></span>
+                        <span id="error-pass" className="sign-in__error">
+                            {errors.password}
+                        </span>
                     </fieldset>
-                    <button className="sign-in__button link" type="submit">
+                    <span id="error-api" className="sign-in__api-error">
+                        {isError ? 'При входе в профиль произошла ошибка.' : ''}
+                    </span>
+                    <button
+                        className={`sign-in__button link ${
+                            isValid ? '' : 'sign-in__button_type_disabled'
+                        }`}
+                        type="submit"
+                        disabled={!isValid ? true : ''}
+                    >
                         Войти
                     </button>
                 </form>

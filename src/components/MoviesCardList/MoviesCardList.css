@@ -35,6 +35,11 @@
     cursor: pointer;
 }
 
+.movies-card-list__serch-error {
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
 @media screen and (max-width: 768px) {
     .movies-card-list {
         margin: 0 30px 60px 30px;

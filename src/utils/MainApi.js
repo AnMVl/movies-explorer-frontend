@@ -94,8 +94,7 @@ class MainApi {
                 nameRU: data.nameRU,
                 nameEN: data.nameEN,
             })
-        })
-        .then(this._checkResponse)
+        }).then(this._checkResponse)
     }
 
     deleteMovie(movieId, token) {

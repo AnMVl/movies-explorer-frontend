@@ -1,53 +1,79 @@
 import { Link, useLocation } from 'react-router-dom';
 import '../MoviesCard/MoviesCard.css';
-import cardImageTest from '../../images/cardImageTest.jpg';
-import { ActiveButton } from '../ActiveButton/ActiveButton';
-import { NotActiveButton } from '../NotActiveButton/NotActiveButton';
+import { MovieButton } from '../MovieButton/MovieButton';
 import { DeleteMovieButton } from '../DeleteMovieButton/DeleteMovieButton';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export function MoviesCard() {
-    const [isCheck, setIsCheck] = useState(false);
-    const location = useLocation();
-    const changeButton = location.pathname !== '/saved-movies';
+export function MoviesCard({ deleteMovie, addMovie, data, savedMovies }) {
+    const { pathname } = useLocation();
+    const changeButton = pathname !== '/saved-movies';
+    const [click, setClick] = useState(false);
 
-    function handleButtonClick() {
-        if (isCheck === true) {
-            setIsCheck(false);
-        } else {
-            setIsCheck(true);
+    useEffect(() => {
+        if (pathname === '/movies') {
+            setClick(
+                savedMovies.some((element) => data.id === element.movieId)
+            );
         }
+    }, [savedMovies, data.id, addMovie, pathname]);
+
+    function handleClick() {
+        const isMovieSaved = savedMovies.some(
+            (element) => data.id === element.movieId
+        );
+        if (isMovieSaved) {
+            setClick(true);
+            addMovie(data);
+        } else {
+            setClick(false);
+            addMovie(data);
+        }
+    }
+
+    function convertTime(duration) {
+        const minutes = duration % 60;
+        const hours = Math.floor(duration / 60);
+        return hours === 0
+            ? `${minutes}м`
+            : minutes === 0
+            ? `${hours}ч`
+            : `${hours}ч${minutes}м`;
     }
 
     return (
         <li className="movies-card">
             <article className="movies-card__content">
                 <div className="movies-card__title-container">
-                    <Link className="movies-card__title">
-                        В погоне за Бенкси
+                    <Link
+                        className="movies-card__title"
+                        to={data.trailerLink}
+                        target="_blank"
+                    >
+                        {data.nameRU}
                     </Link>
-                    <p className="movies-card__duration">0ч 42м</p>
+                    <p className="movies-card__duration">
+                        {convertTime(data.duration)}
+                    </p>
                 </div>
                 <div className="movies-card__container">
-                    <Link>
+                    <Link to={data.trailerLink} target="_blank">
                         <img
-                            src={cardImageTest}
-                            alt="Изображение фильма"
+                            src={
+                                pathname === '/movies'
+                                    ? `https://api.nomoreparties.co${data.image.url}`
+                                    : data.image
+                            }
+                            alt={data.name}
                             className="movies-card__image"
                         />
                     </Link>
                     {changeButton ? (
-                        isCheck ? (
-                            <ActiveButton
-                                handleButtonClick={handleButtonClick}
-                            />
-                        ) : (
-                            <NotActiveButton
-                                handleButtonClick={handleButtonClick}
-                            />
-                        )
+                        <MovieButton click={click} handleClick={handleClick} />
                     ) : (
-                        <DeleteMovieButton />
+                        <DeleteMovieButton
+                            deleteMovie={deleteMovie}
+                            data={data}
+                        />
                     )}
                 </div>
             </article>
