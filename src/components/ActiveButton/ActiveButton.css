@@ -1,0 +1,18 @@
+.active-button{
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100px;
+    height: 29px;
+    border-radius: 30px;
+    background-color: rgba(238, 52, 101, 1);
+    background-image: url('../../images/icons/ActiveButton.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.link:hover {
+    opacity: 0.8;
+    transition: opacity 0.1s ease-in-out;
+    cursor: pointer;
+}
