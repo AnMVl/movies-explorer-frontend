@@ -29,6 +29,10 @@
     color: rgba(255, 255, 255, 1);
 }
 
+.movies-card-list__button_type_disabled {
+    display: none;
+}
+
 .link:hover {
     opacity: 0.8;
     transition: opacity 0.1s ease-in-out;

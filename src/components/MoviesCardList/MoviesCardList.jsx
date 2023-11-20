@@ -110,7 +110,10 @@ export function MoviesCardList({
             </ul>
             {shouldShowButton && (
                 <button
-                    className="movies-card-list__button link"
+                    className={`movies-card-list__button link ${
+                        count >= movies.length &&
+                        'movies-card-list__button_type_disabled'
+                    }`}
                     onClick={clickMore}
                 >
                     Ещё
