@@ -63,12 +63,11 @@ function App() {
         mainApi
             .authorise(email, password)
             .then((data) => {
-                console.log('Response data:', data);
                 const token = data && data.token;
                 if (token) {
                     localStorage.setItem('jwt', token);
                     setLoggedIn(true);
-                    navigate('/', { replace: true });
+                    navigate('/movies', { replace: true });
                 } else {
                     console.error('Ошибка авторизации: токен не найден', data);
                 }
@@ -84,11 +83,20 @@ function App() {
         setIsPass(true);
         mainApi
             .register(username, email, password)
-            .then((data) => {
-                if (data) {
-                    setLoggedIn(true);
-                    navigate('/signin', { replace: true });
-                }
+            .then(() => {
+                mainApi.authorise(email, password).then((data) => {
+                    const token = data && data.token;
+                    if (token) {
+                        localStorage.setItem('jwt', token);
+                        setLoggedIn(true);
+                        navigate('/movies', { replace: true });
+                    } else {
+                        console.error(
+                            'Ошибка авторизации: токен не найден',
+                            data
+                        );
+                    }
+                });
             })
             .catch((err) => {
                 setIsError(true);
