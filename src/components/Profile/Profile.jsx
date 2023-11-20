@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ErrorContext from '../../contexts/ErrorContext';
 import useFormValidation from '../../hooks/useFormValidation';
+import emailRegex from '../../utils/Regex';
 
 export function Profile({
     burgerClick,
@@ -78,6 +79,7 @@ export function Profile({
                             disabled={savedButton}
                             onChange={handleChange}
                             placeholder="Введите Вашу электронную почту"
+                            pattern={emailRegex}
                         />
                         <span id="error-email" className="profile__error">
                             {errors.email}

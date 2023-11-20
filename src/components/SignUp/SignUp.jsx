@@ -4,6 +4,7 @@ import logo from '../../images/icons/header__logo.svg';
 import useFormWithValidation from '../../hooks/useFormValidation';
 import ErrorContext from '../../contexts/ErrorContext';
 import { useCallback, useContext } from 'react';
+import emailRegex from '../../utils/Regex';
 
 export function SignUp({ registration, isPass, setIsError }) {
     const { values, handleChange, errors, isValid } = useFormWithValidation();
@@ -11,7 +12,7 @@ export function SignUp({ registration, isPass, setIsError }) {
 
     useCallback(() => {
         setIsError(false);
-    }, []);
+    }, [setIsError]);
 
     function handleSubmitClick(e) {
         e.preventDefault();
@@ -64,6 +65,7 @@ export function SignUp({ registration, isPass, setIsError }) {
                             name="email"
                             onChange={handleChange}
                             disabled={isPass}
+                            pattern={emailRegex}
                         />
                         <span id="error-email" className="sign-up__error">
                             {errors.email}

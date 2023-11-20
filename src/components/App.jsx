@@ -53,6 +53,7 @@ function App() {
                 });
         } else {
             setLoggedIn(false);
+            setIsTokenCheck(false);
             localStorage.clear();
         }
     }, [loggedIn]);

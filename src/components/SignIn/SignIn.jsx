@@ -4,6 +4,7 @@ import '../SignIn/SignIn.css';
 import useFormWithValidation from '../../hooks/useFormValidation';
 import ErrorContext from '../../contexts/ErrorContext';
 import { useCallback, useContext } from 'react';
+import emailRegex from '../../utils/Regex';
 
 export function SignIn({ login, setIsError, isPass }) {
     const { values, handleChange, errors, isValid } = useFormWithValidation();
@@ -47,6 +48,7 @@ export function SignIn({ login, setIsError, isPass }) {
                             value={values.email}
                             onChange={handleChange}
                             disabled={isPass}
+                            pattern={emailRegex}
                         />
                         <span id="error-email" className="sign-in__error">
                             {errors.email}
