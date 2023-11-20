@@ -13,15 +13,17 @@ import mainApi from '../utils/MainApi.js';
 import CurrentUserContext from '../contexts/CurrentUserContext.js';
 import ErrorContext from '../contexts/ErrorContext';
 import { useCallback, useEffect, useState } from 'react';
+import { Preloader } from './Preloader/Preloader.jsx';
 
 function App() {
-    const navigate = useNavigate();
     const [loggedIn, setLoggedIn] = useState(false);
+    const [isTokenCheck, setIsTokenCheck] = useState(true);
     const [burgerPopupOpen, setBurgerPopupOpen] = useState(false);
     const [currentUser, setCurrentUser] = useState({});
     const [savedMovies, setSavedMovies] = useState([]);
     const [isPass, setIsPass] = useState(false);
     const [isError, setIsError] = useState(false);
+    const navigate = useNavigate();
 
     function handleBurgerPopupClick() {
         setBurgerPopupOpen(true);
@@ -41,6 +43,7 @@ function App() {
                     setSavedMovies(dataMovies.reverse());
                     setCurrentUser(userData);
                     setLoggedIn(true);
+                    setIsTokenCheck(false);
                 })
                 .catch((err) => {
                     console.error(
@@ -151,85 +154,89 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
             <ErrorContext.Provider value={isError}>
                 <div className="body">
-                    <div className="page">
-                        <Routes>
-                            <Route
-                                path="/"
-                                element={
-                                    <Main
-                                        loggedIn={loggedIn}
-                                        burgerClick={handleBurgerPopupClick}
-                                    />
-                                }
-                            />
-                            <Route
-                                path="/signin"
-                                element={
-                                    <SignIn
-                                        login={login}
-                                        setIsError={setIsError}
-                                        isPass={isPass}
-                                    />
-                                }
-                            />
-                            <Route
-                                path="/signup"
-                                element={
-                                    <SignUp
-                                        registration={registration}
-                                        setIsError={setIsError}
-                                        isPass={isPass}
-                                    />
-                                }
-                            />
-                            <Route
-                                path="/movies"
-                                element={
-                                    <ProtectedRoute
-                                        element={Movies}
-                                        loggedIn={loggedIn}
-                                        addMovie={addMovie}
-                                        savedMovies={savedMovies}
-                                        setIsError={setIsError}
-                                        burgerClick={handleBurgerPopupClick}
-                                        onClose={closeAllPopups}
-                                        isOpen={burgerPopupOpen}
-                                    />
-                                }
-                            />
-                            <Route
-                                path="/saved-movies"
-                                element={
-                                    <ProtectedRoute
-                                        element={SavedMovies}
-                                        loggedIn={loggedIn}
-                                        savedMovies={savedMovies}
-                                        deleteMovie={deleteMovie}
-                                        setIsError={setIsError}
-                                        burgerClick={handleBurgerPopupClick}
-                                        onClose={closeAllPopups}
-                                        isOpen={burgerPopupOpen}
-                                    />
-                                }
-                            />
-                            <Route
-                                path="/profile"
-                                element={
-                                    <ProtectedRoute
-                                        element={Profile}
-                                        burgerClick={handleBurgerPopupClick}
-                                        onClose={closeAllPopups}
-                                        isOpen={burgerPopupOpen}
-                                        loggedIn={loggedIn}
-                                        signOut={signOut}
-                                        updateUserData={updateUserData}
-                                        setCurrentUser={setCurrentUser}
-                                    />
-                                }
-                            />
-                            <Route path="*" element={<NotFound />} />
-                        </Routes>
-                    </div>
+                    {isTokenCheck ? (
+                        <Preloader />
+                    ) : (
+                        <div className="page">
+                            <Routes>
+                                <Route
+                                    path="/"
+                                    element={
+                                        <Main
+                                            loggedIn={loggedIn}
+                                            burgerClick={handleBurgerPopupClick}
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="/signin"
+                                    element={
+                                        <SignIn
+                                            login={login}
+                                            setIsError={setIsError}
+                                            isPass={isPass}
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="/signup"
+                                    element={
+                                        <SignUp
+                                            registration={registration}
+                                            setIsError={setIsError}
+                                            isPass={isPass}
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="/movies"
+                                    element={
+                                        <ProtectedRoute
+                                            loggedIn={loggedIn}
+                                            element={Movies}
+                                            addMovie={addMovie}
+                                            savedMovies={savedMovies}
+                                            setIsError={setIsError}
+                                            burgerClick={handleBurgerPopupClick}
+                                            onClose={closeAllPopups}
+                                            isOpen={burgerPopupOpen}
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="/saved-movies"
+                                    element={
+                                        <ProtectedRoute
+                                            element={SavedMovies}
+                                            loggedIn={loggedIn}
+                                            savedMovies={savedMovies}
+                                            deleteMovie={deleteMovie}
+                                            setIsError={setIsError}
+                                            burgerClick={handleBurgerPopupClick}
+                                            onClose={closeAllPopups}
+                                            isOpen={burgerPopupOpen}
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="/profile"
+                                    element={
+                                        <ProtectedRoute
+                                            element={Profile}
+                                            burgerClick={handleBurgerPopupClick}
+                                            onClose={closeAllPopups}
+                                            isOpen={burgerPopupOpen}
+                                            loggedIn={loggedIn}
+                                            signOut={signOut}
+                                            updateUserData={updateUserData}
+                                            setCurrentUser={setCurrentUser}
+                                        />
+                                    }
+                                />
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
+                        </div>
+                    )}
                     <BurgerMenu
                         onClose={closeAllPopups}
                         isOpen={burgerPopupOpen}
