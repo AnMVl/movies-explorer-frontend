@@ -5,6 +5,7 @@ import { MoviesCardList } from '../MoviesCardList/MoviesCardList';
 import { Footer } from '../Footer/Footer';
 import './Movies.css';
 import moviesApi from '../../utils/MoviesApi.js';
+import { shortMovieDuration } from '../../utils/constants.js';
 
 export function Movies({ burgerClick, setIsError, addMovie, savedMovies }) {
     const [movies, setMovies] = useState([]);
@@ -25,7 +26,7 @@ export function Movies({ burgerClick, setIsError, addMovie, savedMovies }) {
                     .toLowerCase()
                     .includes(search.toLowerCase());
                 return isCheck
-                    ? searchName && movie.duration <= 40
+                    ? searchName && movie.duration <= shortMovieDuration
                     : searchName;
             })
         );
