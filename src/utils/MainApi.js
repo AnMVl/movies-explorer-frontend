@@ -109,8 +109,8 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-    // url: 'https://amoro-diplom.nomoredomainsrocks.ru',
-    url: 'http://localhost:3001'
+    url: 'https://amoro-diplom.nomoredomainsrocks.ru',
+    // url: 'http://localhost:3001'
 });
 
 export default mainApi
