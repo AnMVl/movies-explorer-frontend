@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    border-bottom: rgba(170, 170, 170, 1) 1px solid;
+    border-bottom: rgba(170, 170, 170, 0.2) 1px solid;
 }
 
 .search-form__input-container {
@@ -30,7 +30,7 @@
     border: rgba(170, 170, 170, 1) 1.5px solid;
     color: rgba(255, 255, 255, 1);
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
     padding-left: 24px;
     box-sizing: border-box;
     margin-bottom: 6px;
@@ -85,7 +85,7 @@
 
 @media screen and (max-width: 768px) {
     .search-form {
-        padding: 64px 30px 79px 30px;
+        padding: 65px 30px 80.5px 30px;
     }
 }
 

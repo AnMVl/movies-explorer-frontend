@@ -3,7 +3,7 @@ import './FormCheckBox.css';
 export function FormCheckBox({ isCheck, changeShort, firstLoading }) {
     return (
         <label className="checkbox">
-            <div className="checkbox__input-container">
+            <span className="checkbox__input-container">
                 <input
                     type="checkbox"
                     className="checkbox__button"
@@ -42,7 +42,7 @@ export function FormCheckBox({ isCheck, changeShort, firstLoading }) {
                         />
                     </g>
                 </svg>
-            </div>
+            </span>
             <span className="checkbox__title">Короткометражки</span>
         </label>
     );

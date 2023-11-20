@@ -52,6 +52,7 @@ export function Profile({
                             type="text"
                             name="username"
                             autoComplete="off"
+                            placeholder="Введите Ваше имя"
                             required
                             minLength="2"
                             maxLength="40"
@@ -72,6 +73,7 @@ export function Profile({
                             type="email"
                             name="email"
                             autoComplete="off"
+                            placeholder="Введите Ваш Email"
                             required
                             minLength="2"
                             maxLength="40"

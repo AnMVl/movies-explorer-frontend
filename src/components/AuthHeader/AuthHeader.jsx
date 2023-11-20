@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 import headerLogo from '../../images/icons/header__logo.svg';
-import buttonImg from '../../images/icons/header-auth-img.svg';
 import '../AuthHeader/AuthHeader.css';
 
 export function AuthHeader({ burgerClick, auth }) {
@@ -9,59 +8,70 @@ export function AuthHeader({ burgerClick, auth }) {
     const savedmovieLink = location.pathname === '/saved-movies';
     const profileLink = location.pathname === '/profile';
     return (
-        <header className={`header ${auth ? 'header_type_movies' : ''}`}>
+        <header
+            className={`auth-header ${auth ? 'auth-header_type_movies' : ''}`}
+        >
             <Link to="/">
-                <img className="header__logo" src={headerLogo} alt="Логотип" />
+                <img
+                    className="auth-header__logo"
+                    src={headerLogo}
+                    alt="Логотип"
+                />
             </Link>
-            <button className="header__burger" onClick={burgerClick}></button>
-            <nav className="header__nav-bar">
-                <ul className="header__list">
-                    <li className="header__item">
+            <button
+                className="auth-header__burger"
+                onClick={burgerClick}
+            ></button>
+            <nav className="auth-header__nav-bar">
+                <ul className="auth-header__list">
+                    <li className="auth-header__item">
                         <Link
                             to="/movies"
-                            className={`header__button link ${
-                                movieLink ? 'header__button_type_active' : ''
+                            className={`auth-header__button link ${
+                                movieLink
+                                    ? 'auth-header__button_type_active'
+                                    : ''
                             }`}
                         >
                             Фильмы
                         </Link>
                     </li>
-                    <li className="header__item">
+                    <li className="auth-header__item">
                         <Link
                             to="/saved-movies"
-                            className={`header__button link ${
+                            className={`auth-header__button link ${
                                 savedmovieLink
-                                    ? 'header__button_type_active'
+                                    ? 'auth-header__button_type_active'
                                     : ''
                             }`}
                         >
                             Сохранённые фильмы
                         </Link>
                     </li>
-                    <li className="header__item">
+                    <li className="auth-header__item">
                         <Link
                             to="/profile"
-                            className={`header__button link ${
-                                profileLink ? 'header__button_type_active' : ''
+                            className={`auth-header__button auth-header__button_type_profile link ${
+                                profileLink
+                                    ? 'auth-header__button_type_active'
+                                    : ''
                             }`}
                         >
                             Аккаунт
                         </Link>
                     </li>
-                    <li className="header__item">
-                        <Link to="/profile" className="header__button link">
-                            <button
-                                className={`header__button-profile ${
+                    <li className="auth-header__item">
+                        <Link
+                            to="/profile"
+                            className="auth-header__button link"
+                        >
+                            <div
+                                className={`auth-header__button-profile ${
                                     auth
-                                        ? 'header__button-profile_type_movies'
+                                        ? 'auth-header__button-profile_type_movies'
                                         : ''
                                 }`}
-                            >
-                                <img
-                                    src={buttonImg}
-                                    alt="Кнопка личного кабинета пользователя"
-                                />
-                            </button>
+                            />
                         </Link>
                     </li>
                 </ul>

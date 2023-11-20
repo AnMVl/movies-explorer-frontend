@@ -56,6 +56,10 @@
     .checkbox__container {
             padding-bottom: 48px;
         }
+
+    .checkbox {
+        padding-bottom: 46.9px;
+    }
     
     .checkbox__title {
         margin-right: 14px;
@@ -65,6 +69,7 @@
 @media screen and (max-width: 525px) {
     .checkbox__container {
         align-self: center;
+        padding-bottom: 60px;
     }
 
     .checkbox__title {
@@ -75,15 +80,9 @@
     }
 }
 
-@media screen and (max-width: 525px) {
-    .checkbox__container {
-        padding-bottom: 60px;
-    }
-}
-
 @media screen and (max-width: 320px) {
     .checkbox {
-        padding-bottom: 60px;
+        padding-bottom: 61px;
     }
 }
 
