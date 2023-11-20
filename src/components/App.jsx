@@ -23,6 +23,7 @@ function App() {
     const [savedMovies, setSavedMovies] = useState([]);
     const [isPass, setIsPass] = useState(false);
     const [isError, setIsError] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
     const navigate = useNavigate();
 
     function handleBurgerPopupClick() {
@@ -117,12 +118,18 @@ function App() {
             .setUserInfo(username, email, localStorage.jwt)
             .then((res) => {
                 setCurrentUser(res);
+                setIsSuccess(true);
             })
             .catch((err) => {
                 setIsError(true);
                 console.error(`Ошибка редактирования пользователя ${err}`);
             })
-            .finally(() => setIsPass(false));
+            .finally(() => {
+                setIsPass(false);
+                setTimeout(() => {
+                    setIsSuccess(false);
+                }, 4000);
+            });
     }
 
     function deleteMovie(movieId) {
@@ -239,6 +246,7 @@ function App() {
                                             signOut={signOut}
                                             updateUserData={updateUserData}
                                             setCurrentUser={setCurrentUser}
+                                            isSuccess={isSuccess}
                                         />
                                     }
                                 />

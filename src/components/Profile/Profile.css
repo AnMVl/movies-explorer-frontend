@@ -140,6 +140,19 @@
     max-width: 410px;
 }
 
+.profile__success {
+    color: rgba(43, 224, 128, 1);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 0em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 410px;
+}
+
 @media screen and (max-width: 768px) {
     .profile {
         padding-top: 230px;

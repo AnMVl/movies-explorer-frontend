@@ -12,6 +12,7 @@ export function Profile({
     signOut,
     updateUserData,
     setCurrentUser,
+    isSuccess,
 }) {
     const currentUser = useContext(CurrentUserContext);
     const isError = useContext(ErrorContext);
@@ -88,6 +89,11 @@ export function Profile({
                     <span id="error-api" className="profile__error">
                         {isError
                             ? 'При обновлении профиля произошла ошибка.'
+                            : ''}
+                    </span>
+                    <span id="success-api" className="profile__success">
+                        {isSuccess
+                            ? 'Обновление профиля произошло успешно.'
                             : ''}
                     </span>
                 </form>
