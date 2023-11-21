@@ -39,7 +39,6 @@ export function SignUp({ registration, isPass, setIsError }) {
                             type="text"
                             className="sign-up__input"
                             autoComplete="off"
-                            placeholder="Ваше имя"
                             required
                             minLength="2"
                             maxLength="40"
@@ -60,7 +59,6 @@ export function SignUp({ registration, isPass, setIsError }) {
                                 errors.email ? 'sign-up__input_type_error' : ''
                             }`}
                             autoComplete="off"
-                            placeholder="Ваш E-mail"
                             required
                             minLength="2"
                             maxLength="40"
@@ -84,7 +82,6 @@ export function SignUp({ registration, isPass, setIsError }) {
                                     : ''
                             }`}
                             autoComplete="off"
-                            placeholder="Ваш пароль"
                             required
                             minLength="2"
                             maxLength="200"
@@ -114,7 +111,7 @@ export function SignUp({ registration, isPass, setIsError }) {
                     Уже зарегистрированы?{' '}
                     <Link
                         to="/signin"
-                        className="sign-up__info-link sign-up__info-link_color_blue link"
+                        className="sign-up__info sign-up__info_color_blue link"
                     >
                         Войти
                     </Link>

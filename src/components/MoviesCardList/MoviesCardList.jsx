@@ -107,7 +107,6 @@ export function MoviesCardList({
                         «Нет сохранённых фильмов»
                     </span>
                 )}
-
             </ul>
             {shouldShowButton && (
                 <button

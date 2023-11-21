@@ -27,9 +27,9 @@
 .about-me__name {
     margin: 0;
     font-weight: 400;
-    font-size: 47.1px;
-    line-height: 61px;
-    margin-bottom: 17.5px;
+    font-size: 46.5px;
+    line-height: 58px;
+    margin-bottom: 18px;
 }
 
 .about-me__subtitle {
@@ -37,7 +37,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 }
 
 .about-me__text {
@@ -45,7 +45,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    margin-bottom: 98px;
+    margin-bottom: 99px;
 }
 
 .about-me__button {
@@ -67,11 +67,7 @@
 
 @media screen and (max-width: 768px) { 
     .about-me {
-        padding: 89.5px 50px 88px 50px;
-    }
-
-    .about-me__title {
-        margin-bottom: 67px;
+        padding: 89px 50px 88px 50px;
     }
 
     .about-me__text-container {

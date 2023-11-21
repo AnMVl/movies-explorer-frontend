@@ -41,7 +41,6 @@ export function SignIn({ login, setIsError, isPass }) {
                                 errors.email ? 'sign-in__input_type_error' : ''
                             }`}
                             autoComplete="off"
-                            placeholder="Ваш E-mail"
                             required
                             minLength="2"
                             maxLength="40"
@@ -64,7 +63,6 @@ export function SignIn({ login, setIsError, isPass }) {
                                 errors.email ? 'sign-in__input_type_error' : ''
                             }`}
                             autoComplete="off"
-                            placeholder="Ваш пароль"
                             required
                             minLength="2"
                             maxLength="200"
@@ -94,7 +92,7 @@ export function SignIn({ login, setIsError, isPass }) {
                     Еще не зарегистрированы?{' '}
                     <Link
                         to="/signup"
-                        className="sign-in__info-link sign-in__info-link_color_blue link"
+                        className="sign-in__info sign-in__info_color_blue link"
                     >
                         Регистрация
                     </Link>

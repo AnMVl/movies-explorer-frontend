@@ -1,6 +1,6 @@
 .about-project {
     max-width: 100%;
-    padding: 109px 70px 110px 70px;
+    padding: 110px 70px 110px 70px;
     background-color: #202020;
 }
 
@@ -26,7 +26,7 @@
     max-width: 550px;
     display: flex;
     flex-direction: column;
-    gap: 26.5px;
+    gap: 26px;
 }
 
 .about-project__info-title {
@@ -85,7 +85,7 @@
 
     .about-project__title {
         margin-bottom: 72px;
-        padding-bottom: 20px;
+        padding-bottom: 19.5px;
     }
 
     .about-project__info-container {

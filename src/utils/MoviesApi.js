@@ -14,7 +14,7 @@ class MoviesApi {
         return this._request('/')
     }
     }
-    /*создаю экземпляр класса Api*/
+
 const moviesApi = new MoviesApi({
     baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
 });
