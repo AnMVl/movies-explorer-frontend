@@ -128,7 +128,7 @@ function App() {
                 setIsPass(false);
                 setTimeout(() => {
                     setIsSuccess(false);
-                }, 4000);
+                }, 3000);
             });
     }
 

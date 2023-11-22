@@ -12,7 +12,7 @@ export function SearchForm({
     setIsError,
     firstLoading,
     savedMovie,
-    movies,
+    allMovies,
     filter,
     setIsCheck,
 }) {
@@ -42,10 +42,10 @@ export function SearchForm({
     function changeShort() {
         if (isCheck) {
             setIsCheck(false);
-            filter(values.search, false, movies);
+            filter(values.search, false, allMovies);
         } else {
             setIsCheck(true);
-            filter(values.search, true, movies);
+            filter(values.search, true, allMovies);
         }
     }
 
