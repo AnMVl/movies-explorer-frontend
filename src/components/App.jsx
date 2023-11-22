@@ -41,7 +41,6 @@ function App() {
                 mainApi.getMovies(localStorage.jwt),
             ])
                 .then(([userData, dataMovies]) => {
-                    setSavedMovies([]);
                     setSavedMovies(dataMovies.reverse());
                     setCurrentUser(userData);
                     setLoggedIn(true);

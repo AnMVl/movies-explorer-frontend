@@ -17,6 +17,7 @@ export function Profile({
     const currentUser = useContext(CurrentUserContext);
     const isError = useContext(ErrorContext);
     const [savedButton, setSavedButton] = useState(true);
+    const [updateError, setUpdateError] = useState('');
     const { values, handleChange, errors, resetForm, isValid } =
         useFormValidation();
 
@@ -35,9 +36,23 @@ export function Profile({
     function handleSubmitForm(e) {
         const token = localStorage.getItem('token');
         e.preventDefault();
-        updateUserData(values.username, values.email, token);
-        setCurrentUser({ name: values.username, email: values.email });
-        setSavedButton(true);
+        const updateResult = updateUserData(
+            values.username,
+            values.email,
+            token
+        );
+
+        if (updateResult) {
+            setCurrentUser({ name: values.username, email: values.email });
+            setSavedButton(true);
+            setUpdateError('');
+        } else {
+            setUpdateError('При обновлении профиля произошла ошибка.');
+            setTimeout(() => {
+                setUpdateError('');
+            }, 3000);
+            setSavedButton(true);
+        }
     }
 
     return (
@@ -87,9 +102,7 @@ export function Profile({
                         </span>
                     </fieldset>
                     <span id="error-api" className="profile__error">
-                        {isError
-                            ? 'При обновлении профиля произошла ошибка.'
-                            : ''}
+                        {isError ? updateError : ''}
                     </span>
                     <span id="success-api" className="profile__success">
                         {isSuccess
