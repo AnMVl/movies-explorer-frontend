@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { Main } from './Main/Main.jsx';
 import { SignIn } from './SignIn/SignIn';
 import { SignUp } from './SignUp/SignUp';
@@ -188,21 +188,29 @@ function App() {
                                 <Route
                                     path="/signin"
                                     element={
-                                        <SignIn
-                                            login={login}
-                                            setIsError={setIsError}
-                                            isPass={isPass}
-                                        />
+                                        loggedIn ? (
+                                            <Navigate to="/movies" replace />
+                                        ) : (
+                                            <SignIn
+                                                login={login}
+                                                setIsError={setIsError}
+                                                isPass={isPass}
+                                            />
+                                        )
                                     }
                                 />
                                 <Route
                                     path="/signup"
                                     element={
-                                        <SignUp
-                                            registration={registration}
-                                            setIsError={setIsError}
-                                            isPass={isPass}
-                                        />
+                                        loggedIn ? (
+                                            <Navigate to="/movies" replace />
+                                        ) : (
+                                            <SignUp
+                                                registration={registration}
+                                                setIsError={setIsError}
+                                                isPass={isPass}
+                                            />
+                                        )
                                     }
                                 />
                                 <Route
