@@ -3,7 +3,7 @@
     background-color: #073042;
     display: flex;
     justify-content: space-between;
-    padding: 72px 70px 75px 70px;
+    padding: 71px 70px 75px 70px;
 }
 
 .promo__text-container {
@@ -15,7 +15,7 @@
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
-    margin-bottom: 36.8px;
+    margin-bottom: 36px;
 }
 
 .promo__text {
@@ -61,7 +61,7 @@
         flex-direction: column-reverse;
         align-items: center;
         text-align: center;
-        padding: 138px 44px 76px 44px;
+        padding: 137px 44px 76px 44px;
         gap: 48px;
     }
 
@@ -79,7 +79,6 @@
 
     .promo__button {
         margin: 0 auto;
-        padding-top: 8px;
     }
 
 }
@@ -103,9 +102,5 @@
     .promo__img {
         width: 210px;
         height: 206px;
-    }
-
-    .promo__button {
-        padding-top: 9px;
     }
 }

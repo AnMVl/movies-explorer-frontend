@@ -1,4 +1,4 @@
-import { Header } from '../Header/Header';
+import Header from '../Header/Header';
 import { AuthHeader } from '../AuthHeader/AuthHeader';
 import { Promo } from '../Promo/Promo';
 import { AboutProject } from '../AboutProject/AboutProject';

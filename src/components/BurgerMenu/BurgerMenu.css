@@ -92,9 +92,6 @@
     background-color: rgba(49, 49, 49, 1);
     border: none;
     border-radius: 6px;
-    background-image: url(../../images/icons/header-auth-img.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     cursor: pointer;
 }
 
@@ -109,11 +106,6 @@
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .burger__button_type_active {
-        padding-bottom: 3px;
-    }
-}
 
 @media (max-width: 600px) {
     .burger__container {

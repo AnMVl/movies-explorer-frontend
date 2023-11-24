@@ -1,4 +1,4 @@
-.auth-header {
+.header {
     margin: 0 auto;
     background-color: #073042;
     padding: 18px 70px 18px 70px;
@@ -7,37 +7,37 @@
     justify-content: space-between;
 }
 
-.auth-header_type_movies {
+.header_type_movies {
     background-color: rgba(32, 32, 32, 1);
 }
 
-.auth-header__logo {
+.header__logo {
     max-width: 38px;
     max-height: 38px;
     margin: 0;
     padding: 0;
 }
 
-.auth-header__nav-bar {
+.header__nav-bar {
     display: flex;
     gap: 50px;
 }
 
-.auth-header__list {
+.header__list {
     list-style-type: none;
     display: flex;
     padding: 0;
     margin: 0;
-    gap: 18.7px;
+    gap: 18.6px;
     align-items: center;
     justify-content: center;
 }
 
-.auth-header__item:nth-child(2){
+.header__item:nth-child(2){
     margin-right: 29px;
 }
 
-.auth-header__button {
+.header__button {
     margin: 0;
     padding: 0;
     border: none;
@@ -49,30 +49,22 @@
     text-decoration: none;
 }
 
-.auth-header__button-profile {
+.header__button-profile {
     padding: 0;
-    margin: 0;
     border: none;
     border-radius: 6px;
     width: 30px;
     height: 30px;
     border-radius: 6px;
     background-color: rgba(15, 65, 87, 1);
-    background-image: url(../../images/icons/header-auth-img.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     cursor: pointer;
 }
 
-.auth-header__button-profile_type_movies {
+.header__button-profile_type_movies {
     background-color: rgba(49, 49, 49, 1);
 }
 
-.auth-header__button_type_profile {
-    line-height: 16px;
-}
-
-.auth-header__burger {
+.header__burger {
     width: 44px;
     height: 44px;
     background-color: rgba(7, 48, 66, 1);
@@ -83,7 +75,7 @@
     display: none;
 }
 
-.auth-header__button_type_active{
+.header__button_type_active{
     font-weight: 500;
 }
 
@@ -94,31 +86,26 @@
 }
 
 @media (max-width: 768px) {
-    .auth-header {
+    .header {
     padding: 18px 30px 18px 30px;
     }
 
-    .auth-header__nav-bar {
+    .header__nav-bar {
         display: none;
     }
 
-    .auth-header__burger {
+    .header__burger {
         display: block;
     }
 
-    .auth-header__button_type_active {
+    .header__button_type_active {
         border-bottom: 2px solid rgba(0, 0, 0, 1);
         padding-bottom: 8px;
     }
 }
 
-@media (max-width: 320px) {
-    .auth-header {
+@media (max-width: 768px) {
+    .header {
             padding: 18px 14px 18px 14px;
-        }
-
-        .auth-header__burger{
-            width: 39px;
-            height: 43px;
         }
 }
